@@ -22,7 +22,7 @@ def clean_data():
     df = df.apply(lambda x: x.str.replace("-", " "))
     df = df.apply(lambda x: x.str.replace("_", " "))
     df = df.apply(lambda x: x.str.replace("¿", ""))
-    
+    df = df.apply(lambda x: x.str.replace(",", ""))
     # Eliminar símbolo de pesos y comas de la columna 'monto_del_credito'
     #df['monto_del_credito'] = df['monto_del_credito'].str.replace("[$,]", "").astype(float)
     df['monto_del_credito'] = df['monto_del_credito'].str.replace("[$,]", "", regex=True).astype(float)
@@ -38,11 +38,11 @@ def clean_data():
 
 #print(clean_data())
 #print(clean_data().sexo.value_counts().to_list())
-#print(pregunta.clean_data().tipo_de_emprendimiento.value_counts().to_list())
-#print(pregunta.clean_data().idea_negocio.value_counts().to_list())
-#print(pregunta.clean_data().barrio.value_counts().to_list())
-#print(pregunta.clean_data().estrato.value_counts().to_list())
-#print(pregunta.clean_data().comuna_ciudadano.value_counts().to_list())
-#print(pregunta.clean_data().fecha_de_beneficio.value_counts().to_list())
-#print(pregunta.clean_data().monto_del_credito.value_counts().to_list())
-#print(pregunta.clean_data().línea_credito.value_counts().to_list())
+#print(clean_data().tipo_de_emprendimiento.value_counts().to_list())
+#print(clean_data().idea_negocio.value_counts().to_list())
+#print(clean_data().barrio.value_counts().to_list())
+#print(clean_data().estrato.value_counts().to_list())
+#print(clean_data().comuna_ciudadano.value_counts().to_list())
+#print(clean_data().fecha_de_beneficio.value_counts().to_list())
+#print(clean_data().monto_del_credito.value_counts().to_list())
+print(clean_data().línea_credito.value_counts().to_list())
