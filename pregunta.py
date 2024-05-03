@@ -30,8 +30,9 @@ def clean_data():
     #df['monto_del_credito'] = df['monto_del_credito'].str.replace("[$,]", "", regex=True).astype(float)
 
     # Convertir la columna 'fecha_de_beneficio' a formato datetime
-    df['fecha_de_beneficio'] = pd.to_datetime(df['fecha_de_beneficio'], dayfirst=True, errors='coerce')
-    #df.fecha_de_beneficio=pd.to_datetime(df["fecha_de_beneficio"], dayfirst=True, format='mixed')
+    df.fecha_de_beneficio=pd.to_datetime(df["fecha_de_beneficio"], dayfirst=True, format='mixed')
+    #df['fecha_de_beneficio'] = pd.to_datetime(df['fecha_de_beneficio'], dayfirst=True, errors='coerce')
+    
 
     # Eliminar duplicados
     df = df.drop_duplicates()
@@ -41,11 +42,18 @@ def clean_data():
 
 #print(clean_data())
 #print(clean_data().sexo.value_counts().to_list())
+#print(clean_data().sexo.unique())
 #print(clean_data().tipo_de_emprendimiento.value_counts().to_list())
+#print(clean_data().tipo_de_emprendimiento.unique())
 #print(clean_data().idea_negocio.value_counts().to_list())
+#print(clean_data().idea_negocio.unique())
 #print(clean_data().barrio.value_counts().to_list())
+#print(clean_data().barrio.unique())
 #print(clean_data().estrato.value_counts().to_list())
+#print(clean_data().estrato.unique())
 #print(clean_data().comuna_ciudadano.value_counts().to_list())
+#print(clean_data().comuna_ciudadano.unique())
 #print(clean_data().fecha_de_beneficio.value_counts().to_list())
+#print(clean_data().fecha_de_beneficio.unique())
 #print(clean_data().monto_del_credito.value_counts().to_list())
 #print(clean_data().línea_credito.value_counts().to_list())
