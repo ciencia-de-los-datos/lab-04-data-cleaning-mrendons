@@ -16,20 +16,23 @@ def clean_data():
     df.dropna(inplace=True)
     
     # Eliminar caracteres especiales y convertir texto a minúsculas
-    df = df.apply(lambda x: x.astype(str).str.lower())
+    df=df.apply(lambda x: x.astype(str))
+    df=df.apply(lambda x: x.str.lower())
     
     # Reemplazar caracteres específicos por espacio en blanco
     df = df.apply(lambda x: x.str.replace("-", " "))
     df = df.apply(lambda x: x.str.replace("_", " "))
+    df = df.apply(lambda x: x.str.replace("$", ""))
     df = df.apply(lambda x: x.str.replace("¿", ""))
     df = df.apply(lambda x: x.str.replace(",", ""))
     # Eliminar símbolo de pesos y comas de la columna 'monto_del_credito'
-    #df['monto_del_credito'] = df['monto_del_credito'].str.replace("[$,]", "").astype(float)
-    df['monto_del_credito'] = df['monto_del_credito'].str.replace("[$,]", "", regex=True).astype(float)
+    df.monto_del_credito = df.monto_del_credito.astype(float)
+    #df['monto_del_credito'] = df['monto_del_credito'].str.replace("[$,]", "", regex=True).astype(float)
 
     # Convertir la columna 'fecha_de_beneficio' a formato datetime
     df['fecha_de_beneficio'] = pd.to_datetime(df['fecha_de_beneficio'], dayfirst=True, errors='coerce')
-    
+    #df.fecha_de_beneficio=pd.to_datetime(df["fecha_de_beneficio"], dayfirst=True, format='mixed')
+
     # Eliminar duplicados
     df = df.drop_duplicates()
     
