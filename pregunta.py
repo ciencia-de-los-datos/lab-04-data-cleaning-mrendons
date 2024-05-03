@@ -45,4 +45,4 @@ def clean_data():
 #print(clean_data().comuna_ciudadano.value_counts().to_list())
 #print(clean_data().fecha_de_beneficio.value_counts().to_list())
 #print(clean_data().monto_del_credito.value_counts().to_list())
-print(clean_data().línea_credito.value_counts().to_list())
+#print(clean_data().línea_credito.value_counts().to_list())
